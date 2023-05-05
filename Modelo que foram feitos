@@ -1,0 +1,929 @@
+programa
+{
+    inclua biblioteca Util --> u
+ 
+  cadeia setor, filme, sair, comentario, fonte, livro
+  inteiro opcao, nota, codigo
+  cadeia nome[4], usuario [3], senha[3]
+  inteiro tempo_i = 1, tempo_f = 2
+  logico achou = falso
+  
+ funcao inicio()
+  {
+   MenuInicio()   
+  }
+  funcao MenuInicio()
+  {
+    escreva("\t      MENU")
+    escreva("\n********************************\n") 
+    escreva("(1) Catálogo\n")
+    escreva("(2) Localização\n")
+    escreva("(3) Avaliações\n")
+    escreva("(4) Recompensas\n")
+    escreva("(5) Recomendações\n")
+    escreva("(6) Sair do Menu\n")
+    escreva("********************************\n")  
+    escreva("Informe a função desejada: ")
+    leia(opcao)
+    limpa()
+
+   escolha(opcao)
+   {
+     caso 1:
+     menucatalogo()
+     pare
+     caso 2:
+     codigoBarras()
+     pesquisa()
+     pare
+     caso 3:
+     menuCadastro()
+     avaliacaodelivros()
+     pare
+     caso 4:
+     recompensas()
+     pare
+     caso 5:
+     sugestao()
+     pare
+     caso 6:
+     escreva("Obrigado, volte sempre.\n")
+     pare
+     caso contrario:
+     escreva ("Opção inválida!")
+     voltmenu()
+   }
+  } 
+ 
+ //CATÁLOGO(CASO 1)
+  
+  funcao menucatalogo()
+	{
+		cadeia voltar
+		
+		escreva("     Biblioteca - Matérias\n")
+    		escreva("*******************************\n") 
+		escreva("1) Gestão\n")
+		escreva("2) Automação Industrial\n")
+		escreva("3) Tecnologia de Informação\n")
+		escreva("4) Matemática\n")
+		escreva("5) Mecânica\n")
+		escreva("6) Elétrica\n")
+		escreva("7) Voltar\n")
+		escreva("*******************************\n")  
+   		escreva("Informe a opção desejada: ")
+		leia(opcao)
+		limpa()
+
+		escolha(opcao)
+		{
+			caso 1:
+			gestao()
+			recomendaCatalogoGestao()
+			voltmenu()
+			pare
+			caso 2:
+			automacaoindustrial()
+			voltmenu()
+			pare
+			caso 3:
+			ti()
+			voltmenu()
+			pare
+			caso 4:
+			matematica()
+			voltmenu()
+			pare
+			caso 5:
+			mecanica()
+			voltmenu()
+			pare
+			caso 6:
+			eletrica()
+			voltmenu()
+			pare
+			caso 7:
+			voltmenu()
+			pare
+			caso contrario : 
+			escreva("\nOpção digitada incorreta!\nDeseja voltar: \n1) Sim \n2) Não\n")
+			escreva("Informe a opção desejada: ")
+			leia(voltar)
+			limpa()
+			se (voltar == "1"){
+				menucatalogo()
+			}
+			senao se (voltar == "2"){
+				escreva("Até a próxima!\n")
+			}
+			senao {
+				escreva("Opção inválida!\n")
+				voltmenu()
+			}
+			
+		}
+	     }
+	     
+		funcao gestao()
+	     {
+		cadeia materias[] = {"1) Contabilidade","2) Gerenciamento de P.","3) Empreendorismo","4) Rotinas Admi.","5) Gestão de Pessoas","6) Gestão de Produção","7) Gestão de Estoque","8) Marketing\t"}
+		cadeia sessao[] = {"657","658","658","658","658","658-3","658-5","658-7","658-8"}
+		
+		escreva ("-----------------------------------\n")
+		escreva ("              Gestão              \n")
+		escreva ("-----------------------------------\n")
+		escreva ("Matérias:                  Sessões:\n")
+		escreva ("\n")   
+		para (inteiro posicao = 0; posicao < 8; posicao++)
+		{
+			escreva (materias[posicao], "\t\t", sessao [posicao], "\n")
+		}
+	     }
+	     funcao automacaoindustrial()
+	     {
+		cadeia materias[] = {"1) Instrumentação","2) Automação e Controle","3) Construção Civil","4) Desenho Técnico"}
+		cadeia sessao[] = {"681-2","681-5","669","744"}
+		
+		escreva ("-------------------------------------\n")
+		escreva ("         Automação Industrial        \n")
+		escreva ("-------------------------------------\n")
+		escreva ("Matérias:                    Sessões:\n")
+		escreva ("\n")   
+		para (inteiro posicao = 0; posicao < 4; posicao++)
+		{
+			escreva (materias[posicao], "\t\t", sessao [posicao], "\n")
+		}
+	     }
+		    
+	     funcao ti()
+	     {
+		cadeia materias[] = {"1) Arquitetura Computa.","2) Hardware\t","3) Linguagem Progamação","4) Redes computadores"}
+		cadeia sessao[] = {"004-2","004-3","004-43","004-7"}
+		
+		escreva ("---------------------------------------\n")
+		escreva ("        Tecnologia da Informação       \n")
+		escreva ("---------------------------------------\n")
+		escreva ("Matérias:                      Sessões:\n")
+		escreva ("\n")   
+		para (inteiro posicao = 0; posicao < 4; posicao++)
+		{
+			escreva (materias[posicao], "\t\t", sessao [posicao], "\n")
+		}
+	     }
+	     funcao matematica()
+	     {
+		cadeia materias[] = {"1) Matemática\t","2) Física\t","3) Química\t","4) Geologia\t","5) Biologia\t"}
+		cadeia sessao[] = {"51","53","54","551","573"}
+		
+		escreva ("-------------------------------------\n")
+		escreva ("              Matemática             \n")
+		escreva ("-------------------------------------\n")
+		escreva ("Matérias:                    Sessões:\n")
+		escreva ("\n")   
+		para (inteiro posicao = 0; posicao < 5; posicao++)
+		{
+			escreva (materias[posicao], "\t\t", sessao [posicao], "\n")
+		}
+	     }
+	     funcao mecanica()
+	     {
+		cadeia materias[] = {"1) Mecânica Materiais","2) Engenharia Mecânica","3) Máquinas Térmicas"}
+		cadeia sessao[] = {"620-1","621","621-1","551"}
+		
+		escreva ("-------------------------------------\n")
+		escreva ("               Mecânica              \n")
+		escreva ("-------------------------------------\n")
+		escreva ("Matérias:                    Sessões:\n")
+		escreva ("\n")   
+		para (inteiro posicao = 0; posicao < 3; posicao++)
+		{
+			escreva (materias[posicao], "\t\t", sessao [posicao], "\n")
+		}
+		     
+	     }
+	     funcao eletrica()
+	     {
+		cadeia materias[] = {"1) Engenharia\t","2) Circuitos Elétricos","3) Medição Elétrica","4) Instalação Elétrica","5) Dispotivo Eletrônico"}
+		cadeia sessao[] = {"621-3","621-3-049","621-31","621-316-17","621-38"}
+		
+		escreva ("-----------------------------------------\n")
+		escreva ("                 Elétrica                \n")
+		escreva ("-----------------------------------------\n")
+		escreva ("Matérias:                       Sessões: \n")
+		escreva ("\n")   
+		para (inteiro posicao = 0; posicao < 5; posicao++)
+		{
+			escreva (materias[posicao], "\t\t", sessao [posicao], "\n")	
+		}
+		     
+}
+
+  
+  //LOCALIZAÇÃO(CASO 2)
+
+  
+  funcao codigoBarras() {
+		escreva("\t\t    LISTA DE CÓDIGOS")
+		escreva("\n---------------------------------------------------------\n") 
+		escreva("Livros de Gestão                    0000001 até 2000000\n")
+		escreva("Livros de Automação Industrial      2000001 até 3000000\n")
+		escreva("Livros de Tecnologia da Informação  3000001 até 4000000\n")
+		escreva("Livros de Matemática                4000001 até 5500000\n")
+		escreva("Livros de Mecânica                  5500001 até 6250000\n")
+		escreva("Livros de Elétrica                  6250001 até 7500000\n")
+		escreva("---------------------------------------------------------\n")
+	}
+
+funcao pesquisa() {
+		
+		escreva("Insira o código de barras do livro (7 dígitos): ")
+		leia(codigo)
+		limpa()
+
+		se (codigo >= 0000001 e codigo <= 2000000){
+			LocalizarCodigoGestao()
+		}
+		senao se (codigo >= 2000001 e codigo <= 3000000){
+			LocalizarCodigoAutomacao()
+		}
+		senao se (codigo >=3000001 e codigo <= 4000000){
+			LocalizarCodigoTI()
+		}
+		senao se (codigo >=4000001 e codigo <= 5500000){
+			LocalizarCodigoMatematica()
+		}
+		senao se (codigo >=5500001 e codigo <= 6250000){
+			LocalizarCodigoMecanica()
+		}
+		senao se (codigo >=6250001 e codigo <= 7500000){
+			LocalizarCodigoEletrica()
+		}
+		senao {
+			escreva("Código inválido!\n")
+			voltmenu()
+		}
+}
+
+funcao voltaPesquisa(){
+
+		cadeia novaP
+		
+		escreva("Deseja fazer uma nova pesquisa (S/N)? ")
+		leia(novaP)
+		limpa()
+		se (novaP == "S") {
+			escreva ("Voltando... ")
+			enquanto (tempo_i<=tempo_f) {
+			escreva (tempo_i," ")
+			u.aguarde(1000)
+			tempo_i++
+		}
+		limpa()
+		pesquisa()	
+		}
+			
+		senao se (novaP == "N") {
+			escreva ("Até a próxima!\n ")
+		}
+
+		senao {
+			escreva ("Opção inválida! Voltando ao início... ")
+			enquanto (tempo_i<=tempo_f) {
+			escreva (tempo_i," ")
+			u.aguarde(1000)
+			tempo_i++
+		}
+		limpa()
+		pesquisa()
+		}
+}
+
+funcao LocalizarCodigoGestao() {
+	
+		cadeia materias[] = {"Contabilidade","Gerenciamento de P.","Empreendorismo","Rotinas Adm.","Gestão de Pessoas","Gestão de Produção","Gestão de Estoque","Marketing"}
+		cadeia sessao[] = {"657","658","658","658","658","658-3","658-5","658-7","658-8"}
+		
+		
+		se (codigo <= 0250000){
+			para (inteiro posicao = 0; posicao < 1; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 0250001 e codigo <=0500000){
+			para (inteiro posicao = 1; posicao < 2; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 0500001 e codigo <=0750000){
+			para (inteiro posicao = 2; posicao < 3; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 0750001 e codigo <=1000000){
+			para (inteiro posicao = 3; posicao < 4; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 1000001 e codigo <=1250000){
+			para (inteiro posicao = 4; posicao < 5; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 1250001 e codigo <=1500000){
+			para (inteiro posicao = 5; posicao < 6; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 1500001 e codigo <=1750000){
+			para (inteiro posicao = 6; posicao < 7; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 1750001 e codigo <=2000000){
+			para (inteiro posicao = 7; posicao < 8; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+	}
+
+	funcao LocalizarCodigoAutomacao() {
+		
+		cadeia materias[] = {"Instrumentação","Automação e Controle","Construção Civil","Desenho Técnico"}
+		cadeia sessao[] = {"681-2","681-5","669","744"}
+		
+		
+		se (codigo >= 2000001 e codigo <=2250000){
+			para (inteiro posicao = 0; posicao < 1; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 2250001 e codigo <=2500000){
+			para (inteiro posicao = 1; posicao < 2; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 2500001 e codigo <=2750000){
+			para (inteiro posicao = 2; posicao < 3; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 2750001 e codigo <=3000000){
+			para (inteiro posicao = 3; posicao < 4; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+	}
+
+	funcao LocalizarCodigoTI() {
+		
+		cadeia materias[] = {"Instrumentação","Automação e Controle","Construção Civil","Desenho Técnico"}
+		cadeia sessao[] = {"681-2","681-5","669","744"}
+		
+		
+		se (codigo >= 3000001 e codigo <=3250000){
+			para (inteiro posicao = 0; posicao < 1; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 3250001 e codigo <=3500000){
+			para (inteiro posicao = 1; posicao < 2; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 3500001 e codigo <=3750000){
+			para (inteiro posicao = 2; posicao < 3; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 3750001 e codigo <=4000000){
+			para (inteiro posicao = 3; posicao < 4; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+	}
+
+	funcao LocalizarCodigoMatematica() {
+		
+		cadeia materias[] = {"Matemática","Física","Química","Geologia","Biologia"}
+		cadeia sessao[] = {"51","53","54","551","573"}
+		
+		
+		se (codigo >= 4000001 e codigo <=4250000){
+			para (inteiro posicao = 0; posicao < 1; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 4250001 e codigo <=4500000){
+			para (inteiro posicao = 1; posicao < 2; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 4500001 e codigo <=4750000){
+			para (inteiro posicao = 2; posicao < 3; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 4750001 e codigo <=5000000){
+			para (inteiro posicao = 3; posicao < 4; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 5000001 e codigo <=5500000){
+			para (inteiro posicao = 4; posicao < 5; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		
+	}
+
+	funcao LocalizarCodigoMecanica() {
+		
+		cadeia materias[] = {"Mecânica Material","Engenharia Mecânica","Máquinas Térmicas"}
+		cadeia sessao[] = {"620-1","621","621-1"}
+		
+		
+		se (codigo >= 5500001 e codigo <=5750000){
+			para (inteiro posicao = 0; posicao < 1; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 5750001 e codigo <=6000000){
+			para (inteiro posicao = 1; posicao < 2; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 6200001 e codigo <=6250000){
+			para (inteiro posicao = 2; posicao < 3; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+	}
+
+	funcao LocalizarCodigoEletrica() {
+		
+		cadeia materias[] = {"Engenharia","Circuitos Elétricos","Medição Elétrica","Instalações Elétricas","Dispotivos Eletrônicos"}
+		cadeia sessao[] = {"621-3","621-3-049","621-31","621-316-17","621-38"}
+		
+		
+		se (codigo >= 6250001 e codigo <=6500000){
+			para (inteiro posicao = 0; posicao < 1; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 6500001 e codigo <=6750000){
+			para (inteiro posicao = 1; posicao < 2; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 6750001 e codigo <=7000000){
+			para (inteiro posicao = 2; posicao < 3; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 7000001 e codigo <=7250000){
+			para (inteiro posicao = 3; posicao < 4; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+		senao se (codigo >= 7250001 e codigo <=7500000){
+			para (inteiro posicao = 4; posicao < 5; posicao++)
+		{
+			escreva("Livro de ", materias[posicao]," disponível na sessão ",sessao[posicao], ".\n")
+		}
+		voltaPesquisa()
+		}
+	}
+//AVALIAÇÃO(CASO 3)
+  
+
+funcao avaliacaodelivros()
+ {
+   
+   escreva("\t\t\tAVALIAÇÃO")
+   escreva("\n-------------------------------------------------------\n") 
+   escreva("Informe o livro: ")
+   leia(livro)
+   limpa()
+   escreva("\t\t\tAVALIAÇÃO")
+   escreva("\n-------------------------------------------------------\n")
+   escreva("De 1 a 10, qual nota você dá para esse livro? ")
+   leia(nota)
+   limpa()
+   escreva("\t\t\tAVALIAÇÃO")
+   escreva("\n-------------------------------------------------------\n")
+   escreva("Comentário sobre o livro: ")
+   leia(comentario)
+   limpa()
+
+   se (nota<=3) {
+   escreva("Livro não recomendado.\n")
+   escreva("Nome da obra: ",livro,"\n","Nota: ",nota,"\n","Comentários: ",comentario,"\n")
+   voltmenu()
+   }
+   senao se (nota == 4 e nota == 5){
+   escreva("Livro ruim.\n")
+   escreva("Nome da obra: ",livro,"\n","Nota: ",nota,"\n","Comentários: ",comentario,"\n")
+   voltmenu()
+   }
+   senao se (nota == 6 e nota == 7){
+   escreva("Livro aceitável.\n")
+   escreva("Nome da obra: ",livro,"\n","Nota: ",nota,"\n","Comentários: ",comentario,"\n")
+   voltmenu()
+   }
+   senao se (nota == 8 e nota == 9){
+   escreva("Livro ótimo!\n")
+   escreva("Nome da obra: ",livro,"\n","Nota: ",nota,"\n","Comentários: ",comentario,"\n")
+   voltmenu()
+   }
+   senao {
+   escreva("Livro ótimo!\n")
+   escreva("Nome da obra: ",livro,"\n","Nota: ",nota,"\n","Comentários: ",comentario,"\n")
+   voltmenu()
+   }
+ }
+
+//CADASTRO E LOGIN(PARTE DOS CASOS 3 E 4)
+
+ 
+funcao menuCadastro()
+	{
+		cadeia cadastro
+		
+		escreva("Já possui cadastro (S/N)? ")
+		leia(cadastro)
+		limpa()
+		se (cadastro == "S") {
+			escreva ("Direcionando ao login... ")
+			enquanto (tempo_i<=tempo_f) {
+			escreva (tempo_i," ")
+			u.aguarde(1000)
+			tempo_i++
+		}
+		limpa()
+		login()	
+		}
+			
+		senao se (cadastro == "N") {
+			escreva ("Direcionando ao cadastro... ")
+			enquanto (tempo_i<=tempo_f) {
+			escreva (tempo_i, " ")
+			u.aguarde(1000)
+			tempo_i++
+		}
+			limpa()
+			cadastroUsuario()
+		}
+
+		senao {
+			escreva ("Opção inválida! Voltando ao início... ")
+			enquanto (tempo_i<=tempo_f) {
+			escreva (tempo_i," ")
+			u.aguarde(1000)
+			tempo_i++
+		}
+		limpa()
+		inicio()
+		}
+	}
+
+	funcao cadastroUsuario() {
+
+		cadeia dados
+		
+		para (inteiro i = 1; i < 2; i++) {
+			
+		escreva ("Nome completo: ")
+		leia (nome[i])
+		escreva ("Nome de usuário: ")
+		leia (usuario[i])
+		escreva ("Senha: ")
+		leia (senha[i])
+		}
+		limpa()
+		para (inteiro posicao = 1; posicao < 2; posicao++) {
+		escreva ("Verifique seus dados: ")
+		escreva ("\nNome completo: "+nome[posicao]) 
+		escreva ("\nNome de usuário: "+usuario[posicao])
+		escreva ("\nSenha: "+senha[posicao])
+		}
+		escreva ("\nSeus dados estão corretos (S/N)? ")
+		leia (dados)
+		
+
+		se (dados == "S") {
+			escreva ("Direcionando ao login... ")
+			enquanto (tempo_i<=tempo_f) {
+			escreva (tempo_i," ")
+			u.aguarde(1000)
+			tempo_i++
+		}
+		limpa()
+		login()
+		}	
+		
+		
+		senao se (dados == "N") {
+			escreva ("Voltando ao início do cadastro... ")
+			enquanto (tempo_i<=tempo_f) {
+			escreva (tempo_i," ")
+			u.aguarde(1000)
+			tempo_i++
+		}
+			limpa()
+			cadastroUsuario()
+		}
+
+		senao {
+			escreva ("Opção inválida! Voltando ao início... ")
+			enquanto (tempo_i<=tempo_f) {
+			escreva (tempo_i," ")
+			u.aguarde(1000)
+			tempo_i++
+		}
+			limpa()
+			cadastroUsuario()
+		}
+		
+	}
+
+	
+	funcao login() {
+		
+		cadeia senhaUsuario, nomeUsuario, reiniciar
+		
+		escreva ("-----------------------\n")
+		escreva("\t LOGIN\t\n")
+		escreva ("-----------------------\n")
+		escreva("NOME DE USUÁRIO: ")
+		leia (nomeUsuario)
+		escreva ("SENHA: ")
+		leia (senhaUsuario)
+		limpa()
+
+		para (inteiro posicao = 1; posicao < 2; posicao++)
+		{
+			se (usuario[posicao] == nomeUsuario e senha[posicao] == senhaUsuario)
+			{
+				escreva ("Login efetuado!\n")
+				achou = verdadeiro  
+				enquanto (tempo_i<=tempo_f) {
+			escreva (tempo_i," ")
+			u.aguarde(1000)
+			tempo_i++
+		}
+		limpa()
+		avaliacaodelivros()
+			}
+		
+		se (nao achou) 
+		{
+			escreva ("Usuário ou senha inválidos!\n")
+			escreva ("Tentar novamente (S/N)? ")
+			leia (reiniciar)
+			limpa()
+			se (reiniciar == "S") {
+			escreva ("Redirecionando ao login... ")
+			enquanto (tempo_i<=tempo_f) {
+			escreva (tempo_i," ")
+			u.aguarde(1000)
+			tempo_i++
+		}
+		limpa()
+		login()
+		}
+		senao se (reiniciar == "N") {
+			
+			escreva ("Até a próxima!\n")
+		}
+
+		senao {
+			escreva ("Opção inválida! Voltando ao início... ")
+			enquanto (tempo_i<=tempo_f) {
+			escreva (tempo_i," ")
+			u.aguarde(1000)
+			tempo_i++
+		}
+		limpa()
+		inicio()
+		}
+		}
+		}
+	}
+	
+  
+
+//RECOMPENSAS(CASO 4)
+
+  funcao recompensas(){
+  	cadeia recompensa[] = {" ","Estágio na sua área!", "Desconto de 20% em 3 meses!", "Um livro de sua escolha!"}
+	nome[0] = " "
+	nome[2] = "Julia"
+	nome[3] = "Luiz"
+
+		
+		escreva ("-------------------------------------\n")
+		escreva ("              GANHADORES             \n")
+		escreva ("-------------------------------------\n")
+		para (inteiro rank = 1; rank < 4; rank++)
+		{
+			escreva (rank,"º lugar: ",nome[rank], "\nPrêmio: ",recompensa[rank],"\n")
+		}
+	    escreva("Entre em contato com a equipe para\nreceber seu prêmio.\n")
+	    voltmenu()
+  }
+
+//SUGESTÃO(CASO 5)
+
+  
+  funcao sugestao(){
+     cadeia canal, sugestaoextra
+     inteiro recomendacao
+	
+	escreva ("Qual recomendação ou sugestão você tem dentre as opções abaixo?\n")
+	escreva ("\n1) Recomendação de livro\n")
+	escreva ("2) Sugestão de canal de Youtube\n")
+	escreva ("3) Outro(s) \n")
+	escreva ("Informe a opção desejada: ")
+	leia(recomendacao)
+	limpa()
+	escolha (recomendacao){
+	caso 1:
+	escreva("Qual a sua recomendação de leitura? ")
+	leia(livro)
+	escreva("Obrigado pela recomendação!\n")
+	voltmenu()
+	pare
+	caso 2:
+	escreva ("Qual a sua sugestão de canal? ")
+	leia(canal)
+	escreva("Obrigado pela sugestão!\n")
+	voltmenu()
+	pare
+	caso 3:
+	escreva ("Informe a sua sugestão não listada? ")
+	leia(sugestaoextra)
+	escreva("Obrigado pela sugestão!\n")
+	voltmenu()
+	pare
+	caso contrario:
+	escreva ("Opção inválida!\n")
+	voltmenu()
+	}	
+  }
+
+//RECOMENDAÇÃO DO CATÁLOGO
+
+funcao recomendaCatalogoGestao(){
+
+		inteiro livros
+		
+		escreva ("-----------------------------------\n")
+		escreva("Deseja ver algumas recomendações das\náreas listadas?\n")
+		escreva("1) Sim \n2) Não\n")
+		escreva("Informe a opção desejada: ")
+			leia(livros)
+			limpa()
+			se (livros == 1){
+			escreva("\nLivros sobre Contabidade: \n")
+	     	escreva("\n-----------------------------")
+               escreva("\n1) Contabilidade Basica\n \nAutor: Jose Carlos Mairon\n")
+               escreva("\n2) Contabilidade de Cursos\n \nAutor: Ana Borges\n")
+               escreva("\n3) Contabilidade Geral\n \nAutor: Maikol Nascimento Pinto\n")
+               escreva("\n4) Contabilidade: Teoria e Pratica\n \nAutor: Hamilton Luiz Favero")
+               escreva("\n\n")
+               escreva("\nLivros sobre Gereciamento: \n")
+	     	escreva("\n-----------------------------")
+	     	escreva("\n1) Gerenciamento de projetos e o fator humano : Conquistando resultados através das pessoas\n \nAutor: Dinsmore,Paul Campbell\n")
+	     	escreva("\n2) Gerenciamento da cadeia de suprimentos : estratégia, planejamento e operação\n \nAutor: Sunil Chopra\n")
+	     	escreva("\n3) Gerenciamento da rotina do trabalho do dia-a-dia\n \nAutor: Vicente Falconi Campos.\n")
+	     	
+			}
+			se (livros == 2){
+				voltmenu()
+			}
+			senao {
+				escreva ("Opção inválida!")
+				voltmenu()
+			}
+}
+
+funcao recomendaCatalogoAutomacao(){
+
+		inteiro livros
+		
+		escreva ("-----------------------------------\n")
+		escreva("Deseja ver algumas recomendações das\náreas listadas?\n")
+		escreva("1) Sim \n2) Não\n")
+			leia(livros)
+			se (livros == 1){
+			    
+			}
+			se (livros == 2){
+				voltmenu()
+			}
+			senao {
+				escreva ("Opção inválida!")
+				voltmenu()
+			}
+}
+
+funcao recomendaCatalogoTI(){
+
+		inteiro livros
+		
+		escreva ("-----------------------------------\n")
+		escreva("Deseja ver algumas recomendações das\náreas listadas?\n")
+		escreva("1) Sim \n2) Não\n")
+			leia(livros)
+			se (livros == 1){
+			    
+			}
+			se (livros == 2){
+				voltmenu()
+			}
+			senao {
+				escreva ("Opção inválida!")
+				voltmenu()
+			}
+}
+
+//VOLTAR AO MENU
+
+funcao voltmenu()
+  {
+  	escreva ("\nDeseja voltar ao menu (S/N)?  ")
+            leia (sair)
+            se (sair == "S"){
+                limpa()
+                MenuInicio()
+            }
+            senao se (sair == "N") {
+                limpa()
+                escreva("Até a próxima!\n")
+            }
+            senao {
+                limpa()
+                escreva ("Opção inválida!\n")
+            }
+  }
+
+
+}
+
+
